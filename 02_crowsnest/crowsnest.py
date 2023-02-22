@@ -17,7 +17,7 @@ def get_args():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('word',
-                        metavar='str',
+                        metavar='word',
                         help='A word')
 
     return parser.parse_args()
@@ -29,8 +29,14 @@ def main():
 
     args = get_args()
     word = args.word
+    char = word[0].lower()
 
-    print(word)
+    if char in 'aeiou':
+        article = 'an'
+    else:
+        article = 'a'
+
+    print(f'Ahoy, Captain, {article} {word} off the larboard bow!')
 
 
 # --------------------------------------------------
